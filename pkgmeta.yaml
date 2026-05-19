@@ -1,0 +1,14 @@
+package-as: LFGBlacklist
+
+move-folders:
+  LFGBlacklist/LFGBlacklist: LFGBlacklist
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+ignore:
+
+- README.md
+- .github
+- roadmap.md

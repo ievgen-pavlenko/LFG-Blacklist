@@ -1,0 +1,17 @@
+## Interface: 120005
+## Title: LFG Blacklist
+## Notes: Blacklist toxic players and highlight avoided group leaders in Premade Group Finder.
+## Author: Ievgen Pavlenko
+## Version: @project-version@
+## X-Curse-Project-ID: 1548748
+## SavedVariables: LFGBlacklistDB
+
+Core.lua
+Utils.lua
+Database.lua
+Tooltip.lua
+LFGScanner.lua
+ConfigUI.lua
+PopupMenu.lua
+ChatMenu.lua
+SlashCommands.lua
