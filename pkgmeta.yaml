@@ -8,7 +8,7 @@ manual-changelog:
   markup-type: markdown
 
 ignore:
-
 - README.md
 - .github
 - roadmap.md
+- img
