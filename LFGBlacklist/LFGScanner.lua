@@ -356,3 +356,8 @@ function module:Initialize()
         module:HighlightSearchRows()
     end)
 end
+
+function module:RefreshVisibleEntries()
+    self:DebouncedHighlightApplicants()
+    self:DebouncedHighlightSearch()
+end

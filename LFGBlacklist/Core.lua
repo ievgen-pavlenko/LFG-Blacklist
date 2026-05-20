@@ -3,13 +3,12 @@ local addonName, LFGBlacklist = ...
 _G[addonName] = LFGBlacklist
 
 LFGBlacklist.name = addonName
-LFGBlacklist.version = "0.1.0"
+LFGBlacklist.version = "0.1.1"
 LFGBlacklist.moduleOrder = {
     "Tooltip",
     "ConfigUI",
     "PopupMenu",
     "LFGScanner",
-    "ChatMenu",
     "SlashCommands",
 }
 

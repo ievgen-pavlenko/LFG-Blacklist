@@ -4,6 +4,16 @@ All notable changes to LFG Blacklist will be documented here.
 
 ---
 
+## [0.1.1] — 2026-05-20
+
+### Fixed
+- Crash on player remove: `RefreshVisibleEntries` was called but not defined in `LFGScanner`
+- Tooltip warning was never shown — `Tooltip:Initialize()` was empty and never hooked into the game tooltip system
+- Tooltip now uses `TooltipDataProcessor.AddTooltipPostCall` (WoW 12.0 API) with fallback to `hooksecurefunc(GameTooltip, "SetUnit")`
+- Custom `ChatMenu` panel was opening alongside the native WoW context menu on chat right-click — removed in favour of `PopupMenu` which already integrates cleanly into the native menu
+
+---
+
 ## [0.1.0] — 2026-05-20
 
 ### Added
