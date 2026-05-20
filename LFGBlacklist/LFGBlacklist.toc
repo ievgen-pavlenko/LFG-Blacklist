@@ -9,7 +9,6 @@
 Core.lua
 Utils.lua
 Database.lua
-Tooltip.lua
 LFGScanner.lua
 ConfigUI.lua
 PopupMenu.lua

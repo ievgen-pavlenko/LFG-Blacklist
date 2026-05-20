@@ -2,10 +2,7 @@ local addonName, LFGBlacklist = ...
 
 _G[addonName] = LFGBlacklist
 
-LFGBlacklist.name = addonName
-LFGBlacklist.version = "0.1.1"
 LFGBlacklist.moduleOrder = {
-    "Tooltip",
     "ConfigUI",
     "PopupMenu",
     "LFGScanner",
@@ -22,8 +19,6 @@ LFGBlacklist.defaults = {
     },
     settings = {
         highlightLFG = true,
-        showTooltip = true,
-        autoHideGroups = false,
     },
 }
 
@@ -34,7 +29,7 @@ local eventFrame = CreateFrame("Frame")
 LFGBlacklist.eventFrame = eventFrame
 
 function LFGBlacklist:Print(message)
-    local prefix = ("|cff40ff80%s|r"):format(self.name)
+    local prefix = ("|cff40ff80%s|r"):format(addonName)
     print(("%s: %s"):format(prefix, tostring(message or "")))
 end
 
@@ -48,7 +43,7 @@ function LFGBlacklist:InitializeModules()
 end
 
 function LFGBlacklist:ADDON_LOADED(loadedAddonName)
-    if loadedAddonName == self.name then
+    if loadedAddonName == addonName then
         self:InitializeDatabase()
     elseif loadedAddonName == "Blizzard_GroupFinder" and self.LFGScanner then
         -- Group Finder loads on demand, so the row hook has to wait for this addon.
