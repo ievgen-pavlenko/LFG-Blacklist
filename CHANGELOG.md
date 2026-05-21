@@ -4,6 +4,13 @@ All notable changes to LFG Blacklist will be documented here.
 
 ---
 
+## [0.1.1] — 2026-05-21
+
+### Fixed
+- Minimized release package size by fixing `pkgmeta.yaml` ignore list (corrected indentation and filename casing) to properly exclude `img/`, `README.md`, `Roadmap.md`, and `pkgmeta.yaml` from the zip
+
+---
+
 ## [0.1.0] — 2026-05-20
 
 ### Added
