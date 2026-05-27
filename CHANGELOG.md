@@ -4,6 +4,13 @@ All notable changes to LFG Blacklist will be documented here.
 
 ---
 
+## [0.1.2] — 2026-05-27
+
+### Fixed
+- Fixed errors and missing highlights when browsing LFG groups or reviewing applicants while inside a dungeon or instance
+
+---
+
 ## [0.1.1] — 2026-05-21
 
 ### Fixed

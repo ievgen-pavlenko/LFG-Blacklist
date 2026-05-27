@@ -7,6 +7,11 @@ local match = string.match
 local strtrim = strtrim
 local upper = string.upper
 
+-- Safe wrapper following ElvUI's pattern: issecretvalue may not exist on older/classic clients.
+function LFGBlacklist:IsSecretValue(value)
+    return issecretvalue and issecretvalue(value)
+end
+
 local function NormalizeRealmName(realmName)
     if type(realmName) ~= "string" then
         return nil
@@ -32,7 +37,7 @@ local function TitleCaseToken(token)
 end
 
 function LFGBlacklist:NormalizePlayerName(name)
-    if type(name) ~= "string" then
+    if type(name) ~= "string" or self:IsSecretValue(name) then
         return nil
     end
 

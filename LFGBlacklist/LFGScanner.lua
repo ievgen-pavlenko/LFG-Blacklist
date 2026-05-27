@@ -106,11 +106,9 @@ local function GetApplicantBlacklistedMembers(applicantID)
 
     for i = 1, numMembers do
         local memberName = C_LFGList.GetApplicantMemberInfo(applicantID, i)
-        if type(memberName) == "string" and memberName ~= "" then
-            local playerData = LFGBlacklist:GetPlayerData(memberName)
-            if playerData then
-                blacklisted[#blacklisted + 1] = playerData
-            end
+        local playerData = LFGBlacklist:GetPlayerData(memberName)
+        if playerData then
+            blacklisted[#blacklisted + 1] = playerData
         end
     end
 
@@ -169,6 +167,17 @@ end
 -- Search result highlighting
 -- ============================================================
 
+local function ResolveLeaderName(info)
+    local name = info.leaderName
+    if not LFGBlacklist:IsSecretValue(name) then return name end
+    -- In instances leaderName is secret; fall back to the GUID cache.
+    local guid = info.leaderGUID
+    if LFGBlacklist:IsSecretValue(guid) or not guid then return nil end
+    local _, _, _, _, guidName, guidRealm = GetPlayerInfoByGUID(guid)
+    if not guidName or LFGBlacklist:IsSecretValue(guidName) then return nil end
+    return (guidRealm and guidRealm ~= "") and (guidName .. "-" .. guidRealm) or guidName
+end
+
 local _searchDebounce = nil
 
 function module:DebouncedHighlightSearch()
@@ -195,8 +204,8 @@ function module:HighlightSearchRows()
         if rid and C_LFGList and C_LFGList.GetSearchResultInfo then
             if not (C_LFGList.HasSearchResultInfo and not C_LFGList.HasSearchResultInfo(rid)) then
                 local info = C_LFGList.GetSearchResultInfo(rid)
-                if info and info.leaderName then
-                    playerData = LFGBlacklist:GetPlayerData(info.leaderName)
+                if info then
+                    playerData = LFGBlacklist:GetPlayerData(ResolveLeaderName(info))
                 end
             end
         end
