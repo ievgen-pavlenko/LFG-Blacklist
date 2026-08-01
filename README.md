@@ -7,7 +7,7 @@
 <p align="center">
   Blacklist toxic players and highlight them in World of Warcraft Premade Group Finder.
   <br/>
-  Designed for Mythic+, raids, and WoW Retail <strong>Midnight 12.0.7+</strong>.
+  Designed for Mythic+, raids, and WoW Retail <strong>Midnight 12.0.7–12.1.0</strong>.
   <br/><br/>
   <a href="Roadmap.md">Roadmap</a> •
   <a href="CHANGELOG.md">Changelog</a> •
@@ -74,7 +74,7 @@ Search for **LFG Blacklist** and install via your preferred addon manager.
 
 ## Requirements
 
-- WoW Retail — Midnight **12.0.7+**
+- WoW Retail — Midnight **12.0.7 and 12.1.0**
 - No external dependencies
 
 ---

@@ -8,13 +8,13 @@ module.notifiedApplicants = module.notifiedApplicants or {}
 
 -- ============================================================
 -- Scroll box helpers (copied pattern from MoldDetector)
--- In WoW 12.0 ScrollBox frames expose their data through GetElementData()
+-- In WoW 12.x ScrollBox frames expose their data through GetElementData()
 -- and enumerate visible rows through ForEachFrame().
 -- ============================================================
 
 local function EnumerateScrollBoxFrames(sb)
     if not sb then return nil end
-    -- WoW 12.0+: ScrollBox uses ForEachFrame
+    -- WoW 12.x: ScrollBox uses ForEachFrame
     if sb.ForEachFrame then
         local frames = {}
         sb:ForEachFrame(function(f) frames[#frames + 1] = f end)

@@ -4,6 +4,13 @@ All notable changes to LFG Blacklist will be documented here.
 
 ---
 
+## [0.1.4] - 2026-08-01
+
+### Changed
+- Added support for WoW Retail 12.1.0 while keeping support for 12.0.7
+
+---
+
 ## [0.1.3] - 2026-08-01
 
 ### Changed

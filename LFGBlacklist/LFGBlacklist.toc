@@ -1,4 +1,4 @@
-## Interface: 120007
+## Interface: 120007, 120100
 ## Title: LFG Blacklist
 ## Notes: Blacklist toxic players and highlight avoided group leaders in Premade Group Finder.
 ## Author: Ievgen Pavlenko

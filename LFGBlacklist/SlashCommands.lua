@@ -149,7 +149,7 @@ function module:HandleCommand(message)
                     LFGBlacklist:Print("  ScrollBox.GetFrames=" .. tostring(sb.GetFrames ~= nil))
                     LFGBlacklist:Print("  ScrollBox.EnumerateFrames=" .. tostring(sb.EnumerateFrames ~= nil))
                     LFGBlacklist:Print("  ScrollBox.FullUpdate=" .. tostring(sb.FullUpdate ~= nil))
-                    -- Try ForEachFrame first (WoW 12.0)
+                    -- Try ForEachFrame first (WoW 12.x)
                     local frames = nil
                     if sb.ForEachFrame then
                         frames = {}
