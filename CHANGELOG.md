@@ -4,6 +4,14 @@ All notable changes to LFG Blacklist will be documented here.
 
 ---
 
+## [0.1.3] - 2026-08-01
+
+### Changed
+- Updated the addon interface version for WoW Retail 12.0.7
+- Use the dedicated LFG leader-info API when resolving search result leaders, with a compatibility fallback
+
+---
+
 ## [0.1.2] — 2026-05-27
 
 ### Fixed

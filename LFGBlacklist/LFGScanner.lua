@@ -8,8 +8,8 @@ module.notifiedApplicants = module.notifiedApplicants or {}
 
 -- ============================================================
 -- Scroll box helpers (copied pattern from MoldDetector)
--- In WoW 12.0 ScrollBox frames use GetElementData() for their data,
--- and enumerate via GetFrames() or EnumerateFrames().
+-- In WoW 12.0 ScrollBox frames expose their data through GetElementData()
+-- and enumerate visible rows through ForEachFrame().
 -- ============================================================
 
 local function EnumerateScrollBoxFrames(sb)
@@ -168,7 +168,12 @@ end
 -- ============================================================
 
 local function ResolveLeaderName(info)
-    local name = info.leaderName
+    -- Prefer the dedicated player-info API.  It is the supported source for
+    -- leader identity on current clients and avoids depending on the legacy
+    -- leaderName field remaining readable in every LFG context.
+    local leaderInfo = C_LFGList.GetSearchResultLeaderInfo
+        and C_LFGList.GetSearchResultLeaderInfo(info.searchResultID)
+    local name = leaderInfo and leaderInfo.name or info.leaderName
     if not LFGBlacklist:IsSecretValue(name) then return name end
     -- In instances leaderName is secret; fall back to the GUID cache.
     local guid = info.leaderGUID
